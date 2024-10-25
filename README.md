@@ -1,4 +1,5 @@
-# caracterizacao-morfologica-e-quantificacao-genica-Drosophila-melanogaster
+#Caracterização morfológica e quantificação da expressão
+gênica em imagens sagitais da Drosophila melanogaster
 Nesse repositório estão os materiais usados e desenvolvidos na minha iniciação científica, realizada na Universidade Federal de Uberlândia.
 
 Em síntese, o propósito do trabalho é, dadas duas imagens – sendo uma contendo
