@@ -1,0 +1,18 @@
+\chapter{Conclusão}
+\label{cap:conclusao}
+
+Este trabalho desenvolveu uma alternativa em Python ao algoritmo de referência implementado em MATLAB por Breno para a caracterização morfológica e a quantificação de proteína em imagens sagitais de \textit{Drosophila melanogaster}. A implementação final realiza pareamento de imagens por chave normalizada, seleção explícita de canais, segmentação de núcleos como instâncias individuais e medição da intensidade de proteína no interior dos objetos.
+
+Na avaliação principal, foram comparadas 204 imagens de oito conjuntos experimentais. O algoritmo proposto alcançou correlação de Pearson de 0,9986 com as médias de intensidade do algoritmo de referência; 202 imagens, correspondentes a 99,02\% do total, apresentaram diferença absoluta de até 10\%, e o erro relativo absoluto médio foi de 2,511\%. Esses resultados confirmam a forte convergência entre as implementações e superam o critério de concordância de 95\% estabelecido para a comparação. O subconjunto local de 43 pares completos de TIFFs foi preservado para desenvolvimento, testes de regressão e controle de qualidade.
+
+Também foi entregue uma interface gráfica local que permite inspecionar a imagem de núcleo, a proteína e a máscara, selecionar objetos, alterar o contorno de um núcleo, excluir ou restaurar registros e exportar os dados em CSV e JSON. O histórico de alterações e o controle de revisão preservam a rastreabilidade da revisão manual, aspecto importante quando a segmentação automática necessita da avaliação de especialistas.
+
+\section{Limitações}
+
+Os resultados comprovam a convergência computacional com a implementação de referência, mas não estabelecem validade biológica definitiva. A comparação foi realizada com máscaras e imagens de borda derivadas, pois os TIFFs brutos das 204 imagens não estavam disponíveis no conjunto comparativo. Também não foram utilizadas máscaras anotadas manualmente; portanto, não é possível quantificar acurácia de segmentação nem escolher parâmetros somente com base nas imagens resultantes. Núcleos encostados podem permanecer unidos e o alinhamento entre os canais deve ser verificado experimentalmente.
+
+\section{Trabalhos futuros}
+
+Como próximos passos, recomenda-se construir um conjunto de referência com máscaras manuais e avaliar a segmentação com métricas de sobreposição e de detecção de instâncias. Essa base permitirá calibrar área mínima, filtros e operações morfológicas, bem como avaliar a adoção de \textit{watershed} para núcleos aglomerados. Também será possível comparar de forma justa o pipeline clássico a métodos de aprendizado profundo, como U-Net \cite{Ronneberger2015} e StarDist \cite{Schmidt2018}.
+
+Outra extensão consiste em incorporar registro espacial entre canais, controles de aquisição e procedimentos de normalização que sustentem comparações quantitativas entre experimentos. A interface pode evoluir com anotações assistidas, visualização de distribuições e importação de metadados experimentais. Dessa forma, o trabalho estabelece uma base computacional auditável para futuras análises biológicas, sem antecipar conclusões que dependem da validação experimental.

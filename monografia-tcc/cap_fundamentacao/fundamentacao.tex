@@ -1,0 +1,33 @@
+\chapter{Fundamentação teórica}
+\label{cap:fundamentacao}
+
+\section{Imagens de fluorescência e canais}
+
+Uma imagem digital pode ser modelada como uma função discreta em que cada \textit{pixel} representa uma amostra de intensidade. Em imagens multicanais, cada posição espacial possui mais de uma amostra, normalmente associada a diferentes faixas de fluorescência. O processamento digital de imagens busca tanto melhorar a visualização quanto extrair informação quantitativa de forma automática \cite{Gonzalez2018}.
+
+Neste trabalho, o canal 0 é empregado para a segmentação dos núcleos e o canal 2 para a quantificação da proteína. A escolha é explícita no código e registrada na configuração de cada processamento. Não se converte a imagem de proteína para escala de cinza antes da medição: a intensidade é lida diretamente do canal selecionado. Essa distinção é importante porque uma conversão de canais pode alterar a interpretação da grandeza medida.
+
+\section{Segmentação por limiarização e morfologia}
+\label{sec:segmentacao-teoria}
+
+Segmentar uma imagem significa separar seus pixels em regiões de interesse e fundo. No caso estudado, os pixels mais intensos da imagem de núcleos são candidatos a pertencer à estrutura nuclear. Antes da decisão de limiar, um filtro Gaussiano reduz variações locais de alta frequência. Em seguida, a limiarização de Otsu seleciona automaticamente um valor que separa duas classes de intensidades ao maximizar a variância entre elas \cite{Gonzalez2018}.
+
+A máscara binária resultante pode apresentar pequenas ilhas de ruído, falhas internas ou conexões estreitas. Por isso são aplicadas abertura e fechamento morfológicos com elementos estruturantes elípticos. Após essa etapa, a rotulagem de componentes conectados atribui um identificador a cada objeto preservado. Diferentemente de uma representação apenas por bordas, a máscara rotulada permite acessar diretamente os pixels internos de cada núcleo e calcular medidas individualizadas.
+
+\section{Caracterização morfológica}
+
+Para um núcleo com máscara $M$, a área em pixels é dada pelo número de elementos de $M$. O perímetro é obtido a partir do contorno externo. A circularidade é calculada por
+
+\begin{equation}
+    C = \frac{4\pi A}{P^2},
+\end{equation}
+
+em que $A$ é a área e $P$ é o perímetro. Valores próximos de um representam objetos mais circulares; valores menores refletem formas mais alongadas ou irregulares. O centroide é calculado pelos momentos espaciais da máscara. Quando há pontos suficientes, ajusta-se uma elipse para estimar os eixos maior e menor, dos quais se deriva a excentricidade. A área em unidade física depende do tamanho de pixel informado pelo usuário; sem calibração, as medidas são corretamente reportadas em pixels ou pixels quadrados.
+
+\section{Quantificação de intensidade}
+
+Se $I_p$ representa a intensidade de proteína dos pixels de um núcleo, a medida adotada é a média $\bar{I}_p$ dos pixels internos da máscara. O pipeline também calcula mediana, desvio-padrão e intensidade integrada. A quantificação preserva diretamente os valores do canal de proteína selecionado, sem subtração de uma referência média de fundo. Essa escolha mantém a medida compatível com a comparação realizada com o algoritmo de referência.
+
+\section{Reprodutibilidade e revisão humana}
+
+Processamentos quantitativos exigem mais do que uma imagem final. Portanto, o sistema registra parâmetros, pares encontrados, resultados tabulares, máscaras e sobreposições. A revisão humana é incorporada pela interface: objetos podem ser selecionados, ocultados da visualização, excluídos dos agregados, restaurados ou ter o contorno editado. Essa combinação entre automação e inspeção é compatível com práticas de análise de imagens biológicas em que resultados computacionais devem permanecer verificáveis \cite{Carpenter2006,Schindelin2012}.

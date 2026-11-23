@@ -1,0 +1,47 @@
+# Tabela comparativa da média de proteína
+
+| Nome da imagem | Média de proteína — algoritmo do ZIP | Média de proteína — meu algoritmo |
+|---|---:|---:|
+| Cg_+_Myd88488_dorsal_647_BB_04_04_14_3h.lif_Series001 | 84.014 | 86.087 |
+| Cg_+_Myd88488_dorsal_647_BB_04_04_14_3h.lif_Series004 | 55.587 | 56.379 |
+| Cg_+_Myd88488_dorsal_647_BB_04_04_14_3h.lif_Series007 | 76.219 | 78.144 |
+| Cg_+_Myd88488_dorsal_647_NP_04_04_14_3h.lif_Image007 | 90.256 | 86.805 |
+| Cg_+_Myd88488_dorsal_647_NP_04_04_14_3h.lif_Series005 | 83.728 | 83.721 |
+| Cg_+_Myd88488_dorsal_647_PO_04_04_14_3h.lif_Series001 | 32.806 | 32.933 |
+| Cg_+_Myd88488_dorsal_647_PO_04_04_14_3h.lif_Series003 | 32.039 | 32.209 |
+| Cg_+_Myd88488_dorsal_647_PO_04_04_14_3h.lif_Series006 | 24.210 | 25.325 |
+| Cg_+_Tube488_cactus_647_BB_04_04_14_3h.lif_Series002 | 71.163 | 73.875 |
+| Cg_+_Tube488_cactus_647_BB_04_04_14_3h.lif_Series004 | 72.737 | 76.427 |
+| Cg_+_Tube488_cactus_647_BB_04_04_14_3h.lif_Series006less | 58.309 | 60.269 |
+| Cg_+_Tube488_cactus_647_BB_04_04_14_3h.lif_Series008 | 67.731 | 63.002 |
+| Cg_+_Tube488_cactus_647_NP_04_04_14_3h.lif_Series005 | 25.100 | 26.746 |
+| Cg_+_Tube488_cactus_647_NP_04_04_14_3h.lif_Series007 | 58.298 | 65.978 |
+| Cg_+_Tube488_cactus_647_NP_04_04_14_3h.lif_Series009 | 85.048 | 89.633 |
+| Cg_+_Tube488_cactus_647_NP_04_04_14_3h.lif_Series011 | 31.558 | 36.591 |
+| Cg_+_Tube488_cactus_647_NP_04_04_14_3h.lif_Series014 | 26.790 | 29.239 |
+| Cg_+_Tube488_cactus_647_PO_04_04_14_3h.lif_Series001 | 29.336 | 28.050 |
+| Cg_+_Tube488_cactus_647_PO_04_04_14_3h.lif_Series003 | 16.045 | 16.571 |
+| Cg_+_Tube488_cactus_647_PO_04_04_14_3h.lif_Series005 | 27.957 | 29.291 |
+| Cg_+_Tube488_cactus_647_PO_04_04_14_3h.lif_Series007 | 18.885 | 19.950 |
+| Cg_CalpAri_MyD88_488_Dorsal_647_BB_04_04_2014_3h.lif_Series001 | 119.112 | 117.182 |
+| Cg_CalpAri_MyD88_488_Dorsal_647_BB_04_04_2014_3h.lif_Series003 | 97.754 | 94.036 |
+| Cg_CalpAri_MyD88_488_Dorsal_647_BB_04_04_2014_3h.lif_Series005 | 111.839 | 112.909 |
+| Cg_CalpAri_MyD88_488_Dorsal_647_NP_04_04_2014_3h.lif_Series002 | 75.691 | 78.001 |
+| Cg_CalpAri_MyD88_488_Dorsal_647_NP_04_04_2014_3h.lif_Series004 | 81.854 | 82.457 |
+| Cg_CalpAri_MyD88_488_Dorsal_647_PO_04_04_2014_3h.lif_Series008 | 202.935 | 203.942 |
+| Cg_CalpAri_MyD88_488_Dorsal_647_PO_04_04_2014_3h.lif_Series010 | 208.813 | 212.358 |
+| Cg_CalpAri_Tube488_cactus_647_BB_04_04_14_3h.lif_Series001 | 26.715 | 26.775 |
+| Cg_CalpAri_Tube488_cactus_647_BB_04_04_14_3h.lif_Series003 | 31.478 | 30.042 |
+| Cg_CalpAri_Tube488_cactus_647_BB_04_04_14_3h.lif_Series005 | 47.047 | 46.434 |
+| Cg_CalpAri_Tube488_cactus_647_BB_04_04_14_3h.lif_Series007 | 22.460 | 24.258 |
+| Cg_CalpAri_Tube488_cactus_647_NP_04_04_14_3h.lif_Series001 | 27.388 | 28.081 |
+| Cg_CalpAri_Tube488_cactus_647_NP_04_04_14_3h.lif_Series003 | 24.611 | 22.979 |
+| Cg_CalpAri_Tube488_cactus_647_NP_04_04_14_3h.lif_Series005 | 27.133 | 26.620 |
+| Cg_CalpAri_Tube488_cactus_647_NP_04_04_14_3h.lif_Series007 | 56.061 | 59.982 |
+| Cg_CalpAri_Tube488_cactus_647_NP_04_04_14_3h.lif_Series018 | 49.767 | 44.735 |
+| Cg_CalpAri_Tube488_cactus_647_PO_04_04_14_3h.lif_Series001 | 55.579 | 55.323 |
+| Cg_CalpAri_Tube488_cactus_647_PO_04_04_14_3h.lif_Series003 | 52.396 | 52.601 |
+| Cg_CalpAri_Tube488_cactus_647_PO_04_04_14_3h.lif_Series005 | 57.745 | 53.112 |
+| Cg_CalpAri_Tube488_cactus_647_PO_04_04_14_3h.lif_Series007 | 31.882 | 33.681 |
+| Cg_CalpAri_Tube488_cactus_647_PO_04_04_14_3h.lif_Series009 | 73.374 | 77.401 |
+| Cg_CalpAri_Tube488_cactus_647_PO_04_04_14_3h.lif_Series011 | 52.958 | 57.067 |

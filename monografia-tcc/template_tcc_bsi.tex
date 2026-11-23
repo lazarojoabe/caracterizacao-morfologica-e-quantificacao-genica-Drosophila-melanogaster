@@ -1,0 +1,267 @@
+% main_bsiMC_ufu.tex v1.1, Thiago Pirola Ribeiro
+% adaptado do modelo PPGCO - main_ppgco_ufu.tex v1.0, Lásaro Camargos e Denise Guliato
+% Criacao: 2019-03-08 - v1.0
+% ------------------------------------------------------------------------
+% Atualizações.
+% 2022-10-18 - v1.1 - Thiago Pirola Ribeiro
+% 2025-03-12 - V1.2 - Diego Nunes Molinos
+%          - Atualização do termo grau para Título de Bacharel;
+%          - Inclusão da seção de Abstract; 
+% ------------------------------------------------------------------------
+\documentclass{bsi}
+% A classe bsi já configura margens, sumário, citações autor-data e referências ABNT.
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{lmodern}				% Usa a fonte Latin Modern			
+\usepackage{makeidx}            	% Cria o indice
+\usepackage{hyperref}  			% Controla a formação do índice
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}			% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{amsmath}
+% ---
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo eesc
+% ---
+% Pacote de texto demonstrativo removido do trabalho final.
+\usepackage[printonlyused]{acronym}
+\usepackage[table]{xcolor}
+% ---
+
+% ---
+% Insira aqui os pacotes utilizados por você
+% ---
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+%
+% Título:
+%	1. Título em português
+%	2. Título em inglês
+\titulo{Caracterização morfológica e quantificação da expressão gênica em imagens sagitais de \textit{Drosophila melanogaster}}{Morphological characterization and gene-expression quantification in sagittal images of \textit{Drosophila melanogaster}}
+
+\keyword{Processamento Digital de Imagens}
+\keyword{Visão Computacional}
+\keyword{Drosophila melanogaster}
+\keyword{Segmentação de Imagens}
+\keyword{Expressão Gênica}
+
+\autor{Lázaro Joabe Nunes Soares}{SOARES, L. J. N.}
+
+\local{Uberlândia - MG}
+\date{2026}
+
+\areaconcentracao{Ciência da Computação}
+
+\orientador{Bruno Augusto Nassif Travençolo}
+% Nome do coorientador, se houver
+%\coorientador{Nome completo do coorientador}
+% -
+
+
+% informações do PDF
+\hypersetup{
+	pdftitle={\imprimirtitulo},
+	pdfauthor={\imprimirautor},
+	pdfsubject={\imprimirpreambulo},
+%	pdfkeywords=\@resumokw,
+	pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+	colorlinks=true,       		% false: boxed links; true: colored links
+	linkcolor=black,          	% color of internal links
+	citecolor=black,        		% color of links to bibliography
+	filecolor=magenta,      		% color of file links
+	urlcolor=black,
+	bookmarksdepth=4
+}
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Compila a lista de abreviaturas e siglas
+% ---
+\makenomenclature
+% ---
+
+% ----
+% Início do documento
+% ----
+
+\begin{document}
+	
+	% ----------------------------------------------------------
+	% ELEMENTOS PRÉ-TEXTUAIS
+	% ----------------------------------------------------------
+	\pretextual
+	
+	% ---
+	% Insere Capa, Folha de rosto, Ficha catalográfica (se inserida)
+	% e folha de aprovação (se inserida).
+	% ---
+	\maketitle
+
+	% ---
+	% Dedicatória - obrigatório somente para TCC 2
+	% ---
+\imprimirdedicatoria{À minha família e às pessoas que me apoiaram durante esta trajetória.}
+	% ---
+	
+	% ---
+	% Agradecimentos - obrigatório somente para TCC 2
+	% ---
+	\imprimiragradecimentos{Agradeço à minha família pelo apoio constante, ao Professor Bruno Augusto Nassif Travençolo pela orientação e aos integrantes do grupo de pesquisa pelas discussões que contribuíram para este trabalho.
+		
+		
+	}
+	% ---
+	
+	% ---
+	% Epígrafe - obrigatório somente para TCC 2
+	% ---
+	\imprimirepigrafe{
+		``Nada na biologia faz sentido exceto à luz da evolução.''\\
+		(Theodosius Dobzhansky)
+	}
+	% ---
+	
+	% ---
+	% RESUMO - obrigatório somente para TCC 2
+	% ---
+	
+	% Resumo em português
+	\begin{resumo}
+
+Este trabalho apresenta um pipeline computacional para caracterização morfológica e quantificação da expressão gênica em imagens sagitais de \textit{Drosophila melanogaster}. A proposta é uma alternativa ao algoritmo de referência desenvolvido em MATLAB por Breno. O fluxo realiza pareamento explícito das imagens, seleção dos canais de fluorescência, segmentação de núcleos como componentes individuais e medição dos pixels internos de cada objeto. A segmentação combina filtro Gaussiano, limiarização de Otsu, operações morfológicas e rotulagem de componentes conectados. Para cada núcleo são calculadas medidas morfológicas e estatísticas do sinal proteico. Também foi desenvolvida uma interface gráfica local para inspeção das máscaras, revisão dos núcleos, edição de contornos, histórico de alterações e exportação dos resultados. Na avaliação de compatibilidade, foram comparadas 204 imagens de oito conjuntos experimentais com as saídas do algoritmo de referência. O método proposto apresentou correlação de Pearson de 0,9986 e 202 das 204 imagens (99,0\%) ficaram dentro de uma diferença de $\pm 10\%$, com erro relativo absoluto médio de 2,51\%. Esses resultados indicam forte convergência entre as implementações. A comparação utiliza artefatos derivados disponibilizados pelo algoritmo de referência; portanto, a validação com imagens brutas e anotações manuais permanece como perspectiva de validação biológica.
+
+\end{resumo}	
+
+    % Abstract
+	\begin{abstract}
+
+    This work presents a computational pipeline for morphological characterization and gene-expression quantification in sagittal images of \textit{Drosophila melanogaster}. The proposal is an alternative to a reference algorithm developed in MATLAB by Breno. The workflow explicitly pairs images, selects fluorescence channels, segments individual nuclei, and measures the pixels within each object. Segmentation combines Gaussian filtering, Otsu thresholding, morphological operations, and connected-component labeling. Morphological and protein-signal statistics are calculated for every nucleus. A local graphical interface was also developed for mask inspection, nuclei review, contour editing, edit history, and result export. In a compatibility assessment, 204 images from eight experimental datasets were compared with the outputs of the reference algorithm. The proposed method achieved a Pearson correlation of 0.9986; 202 of 204 images (99.0\%) were within $\pm 10\%$, with a mean absolute relative error of 2.51\%. These results indicate strong convergence between the implementations. The comparison uses derived artifacts provided by the reference algorithm; validation with raw images and manual annotations remains a perspective for biological validation.
+
+    \end{abstract}
+		
+	% ---
+	% inserir lista de ilustrações
+	% ---
+	\listailustracoes
+	% ---
+	
+	% ---
+	% inserir lista de tabelas
+	% ---
+	\listatabelas
+	% ---
+	
+	% ---
+	% inserir lista de abreviaturas e siglas
+	% ---
+	% \listasiglas{abrev/Abreviaturas}
+	% ---
+	
+	% ---
+	% inserir o sumario
+	% ---
+	\sumario
+	% ---
+	
+	% ----------------------------------------------------------
+	% ELEMENTOS TEXTUAIS
+	% ----------------------------------------------------------
+	\mainmatter
+	
+	
+	% ----------------------------------------------------------
+	% Introdução
+	% ----------------------------------------------------------
+	\include{cap_introducao/introducao}
+	
+	
+	% ----------------------------------------------------------
+	% Fundamentação / Revisão Bibliográfica
+	% ----------------------------------------------------------
+	\include{cap_fundamentacao/fundamentacao}
+	\include{cap_trabalhos_relacionados/trabalhos_relacionados}
+    \include{cap_metodo/metodo}
+	% ----------------------------------------------------------
+	% Experimentos e avaliação dos resultados
+	% Obrigatório somente para TCC 2
+	% ----------------------------------------------------------
+	\include{cap_experimentos/experimentos}
+	
+	% ---
+	% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+	% ---
+	\bookmarksetup{startatroot} 
+	% ---
+	
+	% ---
+	% Conclusão
+	% Obrigatório somente para TCC 2
+	% ---
+	\include{cap_conclusao/conclusao}	
+	% ----------------------------------------------------------
+	% ELEMENTOS PÓS-TEXTUAIS
+	% ----------------------------------------------------------
+	\postextual
+	
+	% ----------------------------------------------------------
+	% Referências bibliográficas
+	% ----------------------------------------------------------
+	\bibliography{bib/modelo-referencias,bib/ref}
+
+	
+	% ----------------------------------------------------------
+	% Glossário - opcional
+	% ----------------------------------------------------------
+	%
+	%\glossary
+	
+	% ----------------------------------------------------------
+	% Apêndices  - opcional
+	% ----------------------------------------------------------
+	% ---
+	% Inicia os apêndices
+	% ---
+	\begin{apendicesenv}
+		% Imprime uma página indicando o início dos apêndices
+		\partapendices
+		% ----------------------------------------------------------
+		% Incluir Apêndice
+		% ----------------------------------------------------------
+		% Capitulo com exemplos de comandos inseridos de arquivo externo 
+		% ----------------------------------------------------------
+		\include{apendices/reprodutibilidade}
+		
+	\end{apendicesenv}
+	% ---
+	
+	% ----------------------------------------------------------
+	% Anexos  - opcional
+	% ----------------------------------------------------------
+	% ---
+	% Inicia os anexos
+	% ---
+	\iffalse % Não há anexos neste trabalho.
+		% Imprime uma página indicando o início dos anexos
+		\partanexos
+		% ---
+		% Incluir Anexo
+		% ---
+		% Sem anexos no trabalho final.
+		
+	\fi
+	
+	
+\end{document}

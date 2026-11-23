@@ -1,0 +1,24 @@
+\chapter{Trabalhos relacionados}
+\label{cap:trabalhosrelacionados}
+
+A análise computacional de imagens biológicas inclui ferramentas generalistas, métodos especializados e abordagens de aprendizado profundo. Este capítulo situa o presente trabalho nesse cenário e destaca a característica que o diferencia: a adaptação reproduzível a um conjunto de imagens sagitais, com medição por núcleo e revisão manual integrada.
+
+\section{Plataformas de análise de imagens biológicas}
+
+CellProfiler é uma plataforma voltada à construção de pipelines de identificação e quantificação de fenótipos celulares \cite{Carpenter2006}. Sua contribuição central é mostrar que uma sequência explícita de módulos pode transformar imagens em medidas auditáveis. Fiji, por sua vez, oferece um ecossistema extensível de processamento e análise de imagens científicas \cite{Schindelin2012}. Ambas as ferramentas são referências úteis, mas não substituem a documentação das decisões específicas de um experimento, como qual canal mede proteína, qual convenção de nome associa os arquivos e como o operador revisa objetos indevidos.
+
+\section{Análise quantitativa em \textit{Drosophila}}
+
+Fowlkes et al. \cite{Fowlkes2008} construíram um atlas quantitativo espaço-temporal de expressão gênica no blastoderma de \textit{Drosophila}, demonstrando o valor de imagens padronizadas para análises comparáveis. Peng et al. \cite{Peng2011} propuseram a reconstrução automática de núcleos em três dimensões para análise quantitativa de embriões, ressaltando a importância de tratar o núcleo como objeto individual. No plano sagital, Sousa et al. \cite{Sousa2020,Sousa2025} evidenciam que a padronização e a análise computacional das imagens favorecem a extração de informações morfológicas e espaciais.
+
+O presente trabalho não busca substituir esses métodos nem reproduzir uma análise tridimensional. Seu escopo é uma análise bidimensional por imagem, com pares de canais já disponibilizados. A principal aproximação com esses estudos está no compromisso com dados estruturados e com a associação entre posição espacial e intensidade.
+
+\section{Métodos baseados em aprendizado profundo}
+
+Redes neurais convolucionais têm ampliado o desempenho em segmentação biomédica. A U-Net \cite{Ronneberger2015} é uma arquitetura de referência por combinar contexto global e localização detalhada. StarDist representa objetos celulares por polígonos estrelados e é especialmente relevante para instâncias aproximadamente arredondadas \cite{Schmidt2018}. Em \textit{Drosophila}, Duan et al. \cite{Duan2018} aplicaram redes convolucionais para segmentar imagens do coração.
+
+Essas abordagens requerem, em geral, dados anotados para treinamento ou validação e uma estratégia de avaliação compatível. Como este projeto não dispõe de máscaras manuais de referência, foi adotado um método clássico, determinístico e inspecionável. A decisão não implica que o método clássico seja superior; ela delimita um caminho adequado aos dados e recursos disponíveis. Máscaras anotadas constituem o próximo passo tanto para validar o pipeline atual quanto para comparar alternativas baseadas em aprendizado profundo.
+
+\section{Síntese}
+
+Enquanto ferramentas gerais oferecem flexibilidade e métodos de aprendizado profundo podem alcançar alto desempenho quando há dados rotulados, a solução desenvolvida concentra-se na rastreabilidade de um fluxo local: pareamento de arquivos, seleção explícita de canal, segmentação individual, mensuração interna, controle visual e exportação. A implementação é avaliada por comparação com um algoritmo de referência em MATLAB, desenvolvido por Breno, o que permite verificar compatibilidade numérica em uma base extensa mesmo antes da disponibilidade de anotações manuais. Esses elementos orientam o método apresentado no próximo capítulo.

@@ -1,0 +1,13 @@
+{
+  "legacy_total_input_nuclei": 43,
+  "legacy_measured_pairs": 42,
+  "improved_pairs": 43,
+  "unmatched_legacy_or_missing": 1,
+  "legacy_mean_gray_boundary_common": 20.20172303422454,
+  "improved_mean_raw_red_per_nucleus_common": 60.72372402765925,
+  "mean_absolute_change_raw_minus_legacy": 40.522000993434716,
+  "median_absolute_change_raw_minus_legacy": 26.64105372637762,
+  "mean_relative_change_raw_vs_legacy_percent": 202.4962798240483,
+  "legacy_contours_mean_common": 46.95238095238095,
+  "improved_nuclei_mean_common": 39.476190476190474
+}

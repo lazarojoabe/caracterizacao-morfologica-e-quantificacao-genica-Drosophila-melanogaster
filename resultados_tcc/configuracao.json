@@ -1,0 +1,9 @@
+{
+  "nucleus_channel": 0,
+  "protein_channel": 2,
+  "gaussian_kernel": 5,
+  "gaussian_sigma": 1.0,
+  "opening_kernel": 3,
+  "closing_kernel": 5,
+  "min_nucleus_area": 100
+}

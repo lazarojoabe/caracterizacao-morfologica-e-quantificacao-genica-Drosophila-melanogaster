@@ -1,0 +1,23 @@
+\chapter{Reprodução do processamento}
+\label{ap:reprodutibilidade}
+
+O código-fonte, as imagens de controle de qualidade e os arquivos CSV gerados pelo pipeline acompanham este trabalho. A execução abaixo deve ser realizada a partir da raiz do repositório, após a instalação das dependências declaradas em \texttt{requirements.txt}.
+
+\begin{verbatim}
+python -m pip install -r requirements.txt
+python pipeline_melhorado.py --verbose
+python comparar_resultados.py
+python -m unittest -v test_pipeline_melhorado.py
+python -m pytest backend/tests -q
+\end{verbatim}
+
+Para utilizar a interface local, inicia-se a API em um terminal e o cliente web em outro:
+
+\begin{verbatim}
+python -m uvicorn backend.app.main:app --reload --port 8000
+cd frontend
+npm install
+npm run dev
+\end{verbatim}
+
+O processamento gera o manifesto de pares, a tabela por núcleo, o resumo por amostra, o arquivo de configuração e as imagens de máscara e sobreposição. Esses artefatos permitem auditar parâmetros, conferir a associação entre os canais e repetir a análise com o mesmo conjunto de dados.

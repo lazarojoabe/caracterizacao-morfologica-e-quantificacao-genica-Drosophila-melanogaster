@@ -1,0 +1,39 @@
+\chapter{Introdução}
+\label{cap:introducao}
+
+Imagens de fluorescência tornam visíveis estruturas e marcadores que não podem ser avaliados diretamente a olho nu. Em experimentos com \textit{Drosophila melanogaster}, a identificação dos núcleos e a medição da intensidade de proteínas marcadas permitem produzir evidências quantitativas sobre a organização celular e a expressão gênica. A espécie é um organismo modelo consolidado pela facilidade de manejo, pelo curto ciclo de vida e pela ampla utilização em estudos de desenvolvimento \cite{Roberts2006}.
+
+Apesar dessa importância, a inspeção manual de imagens microscópicas é lenta, repetitiva e sensível a decisões do observador. O problema se agrava quando cada núcleo precisa ser delimitado e associado ao sinal da imagem de proteína correspondente. Ferramentas de propósito geral, como Fiji \cite{Schindelin2012} e CellProfiler \cite{Carpenter2006}, oferecem recursos importantes para análise de imagens biológicas, mas um fluxo especializado continua útil quando é necessário registrar regras de pareamento, parâmetros de processamento e critérios de revisão próprios de um conjunto experimental.
+
+Este trabalho desenvolve uma alternativa em Python ao algoritmo de referência implementado em MATLAB por Breno. A implementação inicial em Python, baseada em filtro Gaussiano, limiarização de Otsu, detecção de bordas e contornos, evidenciou limitações que poderiam afetar a rastreabilidade da medida: alguns pares de arquivos não eram reconhecidos pelo nome, a intensidade da proteína era convertida antes da mensuração, a medição se concentrava no contorno e o resultado agregava objetos de uma mesma imagem. A versão final substitui essas decisões por um pipeline reproduzível, orientado a pares de imagens e a núcleos individuais, e por uma interface gráfica para revisão local.
+
+\section{Problema de pesquisa}
+
+O problema abordado consiste em automatizar, com rastreabilidade, a caracterização de núcleos e a quantificação do sinal proteico em imagens sagitais de \textit{Drosophila melanogaster}, preservando os valores de intensidade pertinentes e permitindo inspeção humana dos resultados. A solução deve produzir dados por núcleo, resumos por amostra e artefatos de controle de qualidade sem apresentar a segmentação automática como substituta de uma validação biológica.
+
+\section{Objetivos}
+
+\subsection{Objetivo geral}
+
+Desenvolver e documentar um pipeline computacional para segmentar núcleos, extrair medidas morfológicas e quantificar a expressão proteica em imagens sagitais de \textit{Drosophila melanogaster}, complementado por uma interface local de revisão.
+
+\subsection{Objetivos específicos}
+
+\begin{itemize}
+    \item parear de forma robusta as imagens de núcleos e proteína;
+    \item segmentar e identificar individualmente os núcleos presentes na imagem;
+    \item extrair área, perímetro, centroide, circularidade, eixos e excentricidade;
+    \item medir estatísticas do canal de proteína no interior de cada núcleo;
+    \item exportar resultados por núcleo e por amostra de forma reprodutível;
+    \item disponibilizar revisão visual, edição de contornos, histórico e exportação em interface gráfica;
+    \item comparar a implementação proposta ao algoritmo de referência em MATLAB, verificando a convergência das médias de intensidade por imagem;
+    \item preservar a distinção entre compatibilidade computacional e validação biológica com anotações de referência.
+\end{itemize}
+
+\section{Contribuições}
+
+As contribuições do trabalho são: (i) uma alternativa em Python, auditável, ao algoritmo de referência desenvolvido em MATLAB; (ii) a avaliação de compatibilidade em 204 imagens de oito conjuntos experimentais, com convergência superior a 95\%; (iii) a segmentação por componentes conectados, com métricas por núcleo; (iv) a geração de máscaras, sobreposições, manifesto, configuração e tabelas CSV; e (v) uma aplicação web local para inspeção e revisão das segmentações. A proposta mantém a separação entre a convergência computacional observada e a interpretação biológica, pois não há máscaras manuais (\textit{ground truth}) disponíveis neste trabalho.
+
+\section{Organização da monografia}
+
+O Capítulo \ref{cap:fundamentacao} apresenta os conceitos de processamento de imagens e quantificação utilizados. O Capítulo \ref{cap:trabalhosrelacionados} discute soluções relacionadas. O Capítulo \ref{cap:metodo} detalha o pipeline e a interface de revisão. O Capítulo \ref{cap:experimentos} apresenta os dados processados, os resultados e a comparação com o algoritmo de referência. Por fim, o Capítulo \ref{cap:conclusao} sintetiza as contribuições, limitações e perspectivas.

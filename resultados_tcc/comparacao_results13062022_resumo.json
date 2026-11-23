@@ -1,0 +1,23 @@
+{
+  "input_dir": "..\\results13062022",
+  "pipeline_input_note": "PNG derivados: ch00_mask e ch02_border; não são TIFFs brutos.",
+  "configuration": {
+    "nucleus_channel": 0,
+    "protein_channel": 2,
+    "gaussian_kernel": 5,
+    "gaussian_sigma": 1.0,
+    "opening_kernel": 3,
+    "closing_kernel": 5,
+    "min_nucleus_area": 100
+  },
+  "csv_files_found": 204,
+  "images_compared": 204,
+  "images_with_error_or_missing_input": 0,
+  "mean_breno": 30.944284397906475,
+  "mean_meu_algoritmo": 30.854357321412646,
+  "mean_absolute_error": 0.9196278590165041,
+  "mean_absolute_relative_error_percent": 2.5109281832866595,
+  "mean_delta_meu_menos_breno": -0.08992707649383626,
+  "images_within_10_percent": 202,
+  "pearson_correlation": 0.9985583781855993
+}

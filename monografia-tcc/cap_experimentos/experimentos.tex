@@ -1,0 +1,62 @@
+\chapter{Experimentos e análise dos resultados}
+\label{cap:experimentos}
+
+Este capítulo apresenta a avaliação do algoritmo proposto como alternativa ao algoritmo de referência desenvolvido em MATLAB por Breno. A análise principal utiliza os arquivos de comparação do conjunto \texttt{results13062022}, cujos resultados são organizados em \texttt{comparacao\_results13062022.csv} e \texttt{comparacao\_results13062022\_resumo.json}. O subconjunto local de 43 pares de TIFFs é utilizado no desenvolvimento e em testes de regressão, mas não representa a dimensão total da avaliação comparativa.
+
+\section{Conjunto comparativo}
+
+Foram comparadas 204 imagens, distribuídas em oito conjuntos experimentais. Para cada imagem, estão disponíveis uma máscara de núcleos, uma imagem de proteína com bordas de controle e um arquivo CSV com as medidas do algoritmo de referência. O conjunto reúne 13.740 núcleos no algoritmo de referência e 13.701 no algoritmo proposto. A diferença de contagem é pequena em escala global e é esperada quando duas implementações aplicam tratamentos de máscara independentes.
+
+Os arquivos disponibilizados para a comparação são resultados derivados, e não os TIFFs brutos. Por essa razão, o pipeline proposto é aplicado sobre a máscara \texttt{ch00\_mask} e a imagem \texttt{ch02\_border}; pixels brancos pertencentes às bordas desenhadas são excluídos da medição de proteína. Essa decisão preserva o objetivo da avaliação: verificar se a implementação alternativa converge para as medidas já obtidas pelo algoritmo de referência. Ela não equivale a uma nova segmentação dos arquivos originais.
+
+\section{Execução e controle de qualidade}
+
+O processamento produz uma média de intensidade por imagem e a quantidade de núcleos associados. Os testes automatizados verificam o pareamento de arquivos, a seleção de canais e os fluxos da API. A inspeção visual das máscaras e sobreposições complementa a verificação numérica, permitindo identificar núcleos unidos, fragmentados ou indevidamente incluídos. A Figura \ref{fig:produto-segmentacao} ilustra os artefatos de controle de qualidade do pipeline.
+
+\section{Convergência com o algoritmo de referência}
+
+A Tabela \ref{tab:comparacao-metodos} sintetiza a avaliação. A média das médias de intensidade foi 30,944 no algoritmo de referência e 30,854 no algoritmo proposto. O viés médio foi de $-0{,}090$ unidade de intensidade e o erro absoluto relativo médio foi de 2,511\%. Em 202 das 204 imagens (99,02\%), a diferença absoluta ficou dentro de $\pm 10\%$. A correlação de Pearson entre as médias por imagem foi 0,9986.
+
+\begin{table}[htb]
+    \centering
+    \caption{Comparação entre o algoritmo de referência em MATLAB e o algoritmo proposto.}
+    \label{tab:comparacao-metodos}
+    \begin{tabular}{|p{0.66\textwidth}|r|}
+        \hline
+        \textbf{Indicador} & \textbf{Valor} \\
+        \hline
+        Imagens comparadas & 204 \\
+        \hline
+        Conjuntos experimentais & 8 \\
+        \hline
+        Núcleos no algoritmo de referência & 13.740 \\
+        \hline
+        Núcleos no algoritmo proposto & 13.701 \\
+        \hline
+        Média das intensidades --- referência & 30,944 \\
+        \hline
+        Média das intensidades --- proposto & 30,854 \\
+        \hline
+        Erro absoluto médio & 0,920 \\
+        \hline
+        Erro relativo absoluto médio & 2,511\% \\
+        \hline
+        Imagens dentro de $\pm 10\%$ & 202 de 204 (99,02\%) \\
+        \hline
+        Correlação de Pearson & 0,9986 \\
+        \hline
+    \end{tabular}
+    \fonte{Elaborado pelo autor (2026), a partir de \texttt{comparacao\_results13062022\_resumo.json}.}
+\end{table}
+
+Os resultados indicam forte convergência entre as implementações. A proporção de 99,02\% dentro da tolerância de 10\% supera o critério de convergência de 95\% adotado neste trabalho. A correlação de 0,9986 mostra que as variações de intensidade entre as imagens são preservadas de modo praticamente idêntico pelos dois algoritmos. Ao mesmo tempo, a análise da diferença por imagem evita que uma média global semelhante esconda divergências locais.
+
+\section{Conjunto local de desenvolvimento}
+
+O repositório contém 43 pares completos de TIFFs do conjunto de larvas desafiadas. Esse subconjunto foi usado para desenvolvimento, geração de imagens de controle de qualidade e testes de regressão do pipeline. A comparação adicional com as saídas correspondentes do algoritmo de referência apresentou correlação de Pearson de 0,9980 para as médias brutas de intensidade e erro relativo absoluto médio de 4,318\%. Esses resultados são consistentes com a avaliação ampliada, mas não devem ser confundidos com o total de imagens do experimento.
+
+\section{Limitações e ameaças à validade}
+
+A comparação de 204 imagens estabelece compatibilidade quantitativa com uma implementação de referência, mas não demonstra sozinha acurácia biológica absoluta. Primeiro, ela utiliza máscaras e imagens derivadas disponibilizadas pelo algoritmo de referência, e não os TIFFs brutos. Segundo, não foram utilizadas máscaras anotadas manualmente para calcular métricas de segmentação como \textit{Dice}, \textit{intersection over union}, \textit{precision} e \textit{recall}. Terceiro, o alinhamento espacial entre os canais deve ser validado caso se processem imagens brutas adquiridas ou exportadas separadamente.
+
+Essas limitações não reduzem a evidência de convergência computacional apresentada, mas delimitam corretamente seu significado: o algoritmo proposto reproduz, com alta concordância, as medidas de intensidade do algoritmo de referência no conjunto disponível. A validação biológica em arquivos brutos e com anotações manuais permanece como etapa futura.
